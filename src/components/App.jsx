@@ -1,7 +1,7 @@
-import './App.css';
-import Screen from './components/Screen';
+import Screen from './Screen';
 import React from 'react';
-import Button from './components/Button';
+import Button from './Button';
+import "../styles/app.css"
 let url = 'https://api.nasa.gov/planetary/apod?api_key=4tuFbbP1EHOrCYHe1fjM98UJIKfyMIWiU8xq5tDT&date='
 function formatDate(date) {
     let { month, day, year } = date
