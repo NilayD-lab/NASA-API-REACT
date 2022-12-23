@@ -1,0 +1,107 @@
+:root{
+    --final-font:24px;
+    --left-shift: -10px;
+    --right-shift: 10px;
+}
+
+.btn {
+    border-radius: 50%;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    position: relative;
+    cursor: pointer;
+    font-size: 13px;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#left-btn::before,
+#right-btn::after {
+    opacity: 0;
+    position: relative;
+    transform: translate(0);
+    font-size: 0px;
+    transition: opacity 500ms, transform 500ms, font-size 500ms;
+}
+
+#left-btn::before {
+    content: "❮";
+}
+
+#left-btn:hover::before{
+    opacity: 1;
+    transform: translate(var(--left-shift));
+    font-size: var(--final-font);
+}
+
+#right-btn::after {
+    content: "❯";
+}
+
+#right-btn:hover::after {
+    opacity: 1;
+    transform: translate(var(--right-shift));
+    font-size: var(--final-font);
+}
+
+#left-btn::after,
+#right-btn::before {
+    content: "";
+    border-radius: 50%;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 500ms, height 500ms, top 500ms, left 500ms;
+}
+
+#left-btn:hover::after,
+#right-btn:hover::before {
+    width: 400%;
+    height: 400%;
+    top: -150%;
+}
+
+#left-btn:hover::after {
+    left: -280%
+}
+
+#right-btn:hover::before {
+    left: -30%
+}
+
+@media screen and (min-width: 1200px) {
+    :root{
+        --final-font:26px;
+    }
+    .btn {
+        width: 120px;
+        height: 120px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    :root {
+            --final-font: 43px;
+            --left-shift: -20px;
+            --right-shift: 20px;
+        }
+    .btn {
+        width: 140px;
+        height: 140px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+}
