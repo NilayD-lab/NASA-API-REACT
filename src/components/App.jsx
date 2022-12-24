@@ -65,8 +65,6 @@ export default function App() {
             .then(response => response.json())
             .then(res => {
                 let type = (("" + res.url).includes("youtube")) ? "iframe" : "img" // figure out if url is video or not
-                // console.log("REESSSS")
-                // console.log(res)
                 let { url, explanation } = res
                 setData(data => ({
                     type: type, // set that type 
@@ -84,9 +82,9 @@ export default function App() {
             <h1>NASA APOD API</h1>
             <h2>{date.text}</h2>
             <div id="input-container">
-                <input id="input" type="date" value={formatDate(date)} min="1995-06-16" max={formatDate(stripDate(new Date()))} onChange={() => {
+                <input id="input" type="date" value={formatDate(date)} min="1995-06-16" max={formatDate(stripDate(new Date()))} onChange={(event) => {
                     let temp = new Date()
-                    let value = document.getElementById("input").value
+                    let value = event.target.value
                     temp.setDate(value.slice(8, 10))
                     temp.setFullYear(parseInt(value.slice(0, 4)))
                     temp.setMonth(parseInt(value.slice(5, 7)) - 1)
